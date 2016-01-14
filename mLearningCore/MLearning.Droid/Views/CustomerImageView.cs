@@ -28,6 +28,7 @@ namespace MLearning.Droid
 		TextView txtDescription;
 		TextView txtTitle;
 		ImageView imBack;
+		public LinearLayout mainLinearLayout;
 
 		LinearLayout relTemp;
 
@@ -41,51 +42,16 @@ namespace MLearning.Droid
 
 		void Initialize ()
 		{
-			this.LayoutParameters = new RelativeLayout.LayoutParams(-1,-2);// LinearLayout.LayoutParams (Configuration.getWidth (582), Configuration.getHeight (394));
+			this.LayoutParameters = new RelativeLayout.LayoutParams(-1,-1);
 			this.SetGravity(GravityFlags.CenterHorizontal);
 
+			mainLinearLayout = new LinearLayout (context);
+			mainLinearLayout.LayoutParameters = new LinearLayout.LayoutParams (-1, -1);
+			mainLinearLayout.Orientation = Orientation.Vertical;
 
 			imBack = new ImageView (context);
-
-			//imBack.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);
-
-			image = new LinearLayout(context);
 			txtDescription = new TextView (context);
 			txtTitle = new TextView (context);
-			background = new LinearLayout (context);
-			relTemp = new LinearLayout(context);
-
-
-			//LinearLayout.LayoutParams paramL = new new LinearLayout.LayoutParams (Configuration.getWidth (530), Configuration.getHeight (356));
-
-			background.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);
-
-			background.Orientation = Orientation.Vertical;
-
-
-
-			//background.SetBackgroundColor (Color.ParseColor ("#50000000"));
-			//background.BaselineAligned = true;
-
-			image.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);
-			image.Orientation = Orientation.Vertical;
-			//image.SetGravity (GravityFlags.Center);
-
-			relTemp.LayoutParameters = new LinearLayout.LayoutParams (-1, -2);
-			//relTemp.SetGravity (GravityFlags.Center);
-
-			//RelativeLayout.LayoutParams param = new RelativeLayout.LayoutParams(Configuration.getWidth (530), Configuration.getHeight (356));
-
-			//param.AddRule (LayoutRules.CenterInParent);
-
-			relTemp.AddView (background);
-			int space = Configuration.getWidth (30);
-			relTemp.SetPadding (space, 0, space, 0);
-
-			//txtTitle.SetTextColor (Color.ParseColor("#424242"));
-			//txtDescription.SetTextColor(Color.ParseColor("#424242"));
-			//txtTitle.SetTextSize (ComplexUnitType.Px, Configuration.getHeight (40));
-			//txtDescription.SetTextSize (ComplexUnitType.Px, Configuration.getHeight (30));
 
 			txtTitle.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(38));
 			txtDescription.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(32));
@@ -93,16 +59,15 @@ namespace MLearning.Droid
 			txtDescription.Typeface =  Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
 
-			background.AddView (txtTitle);
-			background.AddView (txtDescription);
+			int padW = Configuration.getWidth(30);
+			int padH = Configuration.getHeight (0);
+			this.SetPadding (padW,padH,padW,padH);
+	
+			mainLinearLayout.AddView (txtTitle);
+			mainLinearLayout.AddView (imBack);
+			mainLinearLayout.AddView (txtDescription);
 
-			image.AddView (relTemp);
-			image.AddView (imBack);
-			imBack.SetPadding(space,0,space,0);
-
-			image.SetBackgroundColor (Color.Green);
-			image.SetGravity (GravityFlags.Center);
-			this.AddView (image);
+			this.AddView (mainLinearLayout);
 			//this.AddView (background);
 
 
@@ -113,7 +78,7 @@ namespace MLearning.Droid
 			get{ return _title;}
 			set{ _title = value;
 				if (_title == null) {
-					background.RemoveView (txtTitle);
+					mainLinearLayout.RemoveView (txtTitle);
 				}
 				txtTitle.Text = _title;
 			}
@@ -126,7 +91,7 @@ namespace MLearning.Droid
 			set{ _description = value;
 
 				if (_description == null) {
-					background.RemoveView (txtDescription);
+					mainLinearLayout.RemoveView (txtDescription);
 				}
 
 				txtDescription.TextFormatted = Html.FromHtml (_description);
@@ -149,7 +114,6 @@ namespace MLearning.Droid
 			set{ _imagen = value;
 
 				Picasso.With (context).Load (_imagen).Resize(Configuration.getWidth(640),Configuration.getHeight(640)).CenterInside().Into (imBack);
-
 
 			}
 

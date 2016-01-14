@@ -51,9 +51,8 @@ namespace MLearning.Droid
 			Configuration.setWidthPixel (widthInDp);
 			Configuration.setHeigthPixel (heightInDp);
 
-			//ini ();
 			ini2 ();
-			//iniNotifList ();
+
 			this.AddView (mainLayout);
 
 		}
@@ -95,15 +94,11 @@ namespace MLearning.Droid
 			content.SetTextSize (ComplexUnitType.Fraction, Configuration.getHeight(32));
 			content.Typeface = Typeface.CreateFromAsset(context.Assets, "fonts/ArcherMediumPro.otf");
 
-
-
-
 			contentLinearLayout.AddView (titleHeader);
 			contentLinearLayout.AddView (content);
 			contentLinearLayout.AddView (imHeader);
 
 			mainLayout.AddView (contentLinearLayout);
-			mainLayout.SetBackgroundColor (Color.AliceBlue);
 
 		}
 		public void ini(){
@@ -262,7 +257,7 @@ namespace MLearning.Droid
 					int H = 0;
 					vto.GlobalLayout += (sender, args) => {     
 						H = content.Height;
-						content.LayoutParameters.Height = H - Configuration.getHeight (40);
+						//content.LayoutParameters.Height = H - Configuration.getHeight (30);
 
 					};  
 				}

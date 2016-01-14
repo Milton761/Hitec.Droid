@@ -108,7 +108,7 @@ namespace MLearning.Droid
 			//contenLayout.SetY (Configuration.getWidth (12));
 			mainLayout.SetPadding (padW,padH,padW,padH);
 			mainLayout.AddView(contenLayout);
-			mainLayout.SetBackgroundColor (Color.Red);
+			//mainLayout.SetBackgroundColor (Color.Red);
 		}
 
 		private string _title;
