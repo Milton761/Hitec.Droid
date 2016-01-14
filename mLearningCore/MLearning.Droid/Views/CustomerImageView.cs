@@ -96,11 +96,12 @@ namespace MLearning.Droid
 			background.AddView (txtTitle);
 			background.AddView (txtDescription);
 
-
-
 			image.AddView (relTemp);
 			image.AddView (imBack);
-			imBack.SetPadding(space,space,space,space);
+			imBack.SetPadding(space,0,space,0);
+
+			image.SetBackgroundColor (Color.Green);
+			image.SetGravity (GravityFlags.Center);
 			this.AddView (image);
 			//this.AddView (background);
 
@@ -129,6 +130,14 @@ namespace MLearning.Droid
 				}
 
 				txtDescription.TextFormatted = Html.FromHtml (_description);
+
+				ViewTreeObserver vto = txtDescription.ViewTreeObserver;
+				int H = 0;
+				vto.GlobalLayout += (sender, args) => {     
+					H = txtDescription.Height;
+					txtDescription.LayoutParameters.Height = H - Configuration.getHeight (50);
+
+				};  
 				//txtDescription.Text = _description;
 			}
 
@@ -138,20 +147,9 @@ namespace MLearning.Droid
 		public String Imagen{
 			get{ return _imagen;}
 			set{ _imagen = value;
-				//Bitmap bm = Configuration.GetImageBitmapFromUrl (_imagen);
-				//Drawable dr = new BitmapDrawable (Bitmap.CreateScaledBitmap (bm, Configuration.getWidth (582), Configuration.getHeight (394), true));
-
-				//image.SetBackgroundDrawable (dr);
-				//Bitmap  bm = GetImageBitmapFromUrlAsync(_imagen);
-
-				//imBack.SetImageBitmap (Bitmap.CreateScaledBitmap (bm, Configuration.getWidth (582), Configuration.getHeight (394), true));
-				//bm = null;
 
 				Picasso.With (context).Load (_imagen).Resize(Configuration.getWidth(640),Configuration.getHeight(640)).CenterInside().Into (imBack);
 
-				/*Task task = new Task (DownloadImage);
-				task.Start();
-				task.Wait ();*/
 
 			}
 

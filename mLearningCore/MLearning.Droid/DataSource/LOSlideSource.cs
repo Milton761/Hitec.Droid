@@ -170,8 +170,8 @@ namespace DataSource
 				Template1 plantilla = new Template1 (context);
 				plantilla.Title = _title;
 				plantilla.Author = _author;
-				plantilla.Contenido = _paragraph;
 				plantilla.ImageUrl = _imageurl;
+				plantilla.Contenido = _paragraph;
 				plantilla.ColorTexto = _colorS;
 				//Console.WriteLine ("CREA PLANTILLAAAAAAAAA  111111");
 				return plantilla;
@@ -217,9 +217,9 @@ namespace DataSource
 			if (_type == 6) {
 				CustomerImageView plantilla = new CustomerImageView (context);
 				plantilla.Title = _title;
-				plantilla.Description = _paragraph;
 				plantilla.Imagen = _imageurl;//BitmapFactory.DecodeByteArray (_imagebytes, 0, _imagebytes.Length);
 				plantilla.ColorTexto = _colorS;
+				plantilla.Description = _paragraph;
 				return plantilla;
 			}
 

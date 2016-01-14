@@ -23,7 +23,7 @@ namespace MLearning.Droid
 	public class Template2 : RelativeLayout
 	{
 		RelativeLayout mainLayout;
-		LinearLayout contenLayout;
+		public LinearLayout contenLayout;
 
 
 		TextView titleHeader;
@@ -102,19 +102,25 @@ namespace MLearning.Droid
 
 			//contenLayout.SetX (Configuration.getHeight (45));
 			int padW = Configuration.getWidth(30);
-			int padH = Configuration.getHeight (15);
+			int padH = Configuration.getHeight (0);
 			//contenLayout.SetPadding (padW,padH,padW,padH);
 
 			//contenLayout.SetY (Configuration.getWidth (12));
 			mainLayout.SetPadding (padW,padH,padW,padH);
 			mainLayout.AddView(contenLayout);
+			mainLayout.SetBackgroundColor (Color.Red);
 		}
 
 		private string _title;
 		public string Title{
 			get{return _title; }
 			set{_title = value;
-				titleHeader.Text = _title;}
+				if (_title == null) {
+					contenLayout.RemoveView (titleHeader);
+				} else {
+					titleHeader.Text = _title;
+				}
+			}
 
 		}
 
@@ -126,6 +132,15 @@ namespace MLearning.Droid
 			set{_content = value;
 				content.TextFormatted = Html.FromHtml (_content);
 				//content.Text = _content;
+
+				ViewTreeObserver vto = content.ViewTreeObserver;
+				int H = 0;
+				vto.GlobalLayout += (sender, args) =>
+				{     
+					H = content.Height;
+					content.LayoutParameters.Height = H-Configuration.getHeight(50);
+
+				};  
 			}
 
 		}
