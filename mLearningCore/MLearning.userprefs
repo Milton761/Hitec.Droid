@@ -1,22 +1,16 @@
-﻿<Properties StartupItem="MLearning.Droid\Hitec.Droid.csproj">
+﻿<Properties StartupItem="MLearning.Droid\Hitec.Droid.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workbench ActiveDocument="MLearning.Droid\Views\MapView.cs">
     <Files>
-      <File FileName="MLearning.Droid\Views\WallView.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core\ViewModels\LOMapViewModel.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid\Views\LOMapView.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core\ViewModels\MainViewModel.cs" Line="1" Column="1" />
       <File FileName="MLearning.Droid\Views\MainView.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid\Views\CustomerImageView.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid\Views\MapView.cs" Line="328" Column="55" />
       <File FileName="MLearning.Droid\Views\Template1.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid\Views\Configuration.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core\Services\IMLearningService.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core\Services\MLearningAzureService.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core\Configuration\Constants.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Core\Repositories\WAMSRepositoryService.cs" Line="1" Column="1" />
-      <File FileName="MLearning.Droid\Views\MapView.cs" Line="394" Column="6" />
+      <File FileName="MLearning.Droid\Views\Template2.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid\Views\Template3.cs" Line="1" Column="1" />
+      <File FileName="MLearning.Droid\Views\CustomerImageView.cs" Line="87" Column="4" />
+      <File FileName="MLearning.Droid\Views\CustomerVideoView.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.4C3AWN154L014669" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 7 (Lollipop)" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/aocsa/Documents/proyectos/milton/Hitec.Droid dec 4/mLearningCore/MLearning.Droid/Views/MainView.cs" line="764" column="1" />
@@ -25,4 +19,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Hitec.Droid AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>

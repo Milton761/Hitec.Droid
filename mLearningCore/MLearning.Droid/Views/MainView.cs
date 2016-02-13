@@ -1686,7 +1686,7 @@ namespace MLearning.Droid.Views
 				GcmClient.CheckDevice(this);
 				GcmClient.CheckManifest(this);
 
-			
+				//HUILLCA--COMENTE ESTAS 2 LINEAS PARA QUE CORRA EN EL EMULADOR
 				System.Diagnostics.Debug.WriteLine("Registering...");
 				GcmClient.Register(this, Core.Configuration.Constants.SenderID);
 			}
